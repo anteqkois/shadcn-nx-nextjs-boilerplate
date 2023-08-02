@@ -17,7 +17,7 @@ https://nx.dev/recipes/react/using-tailwind-css-in-react
 `npm install -D tailwindcss@latest postcss@latest autoprefixer@latest`
 
 paste to `postcss.config.js`
-```json
+```ts
 const { join } = require('path');
 
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
 ```
 
 paste to `tailwind.config.js`
-```json
+```ts
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
 
@@ -51,7 +51,7 @@ module.exports = {
 ```
 
 replace `global.css`
-```json
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -83,7 +83,7 @@ create `components` dir, `utils.ts` and `index.ts` file at `libs/ui-components/s
 edit `tailwind.config.js`
 
 get config from shadcn/ui docs:
-```json
+```js
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
@@ -163,7 +163,7 @@ module.exports = {
 ```
 
 merge it with existing `tailwind.config.js` config, final version:
-```json
+```ts
 /** @type {import('tailwindcss').Config} */
 const { fontFamily } = require('tailwindcss/defaultTheme');
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
@@ -251,7 +251,7 @@ module.exports = {
 ```
 
 edit `global.css`
-```json
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -336,7 +336,7 @@ edit `global.css`
 ```
 
 add to `libs/ui-components/src/utils.ts`
-```json
+```ts
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -386,12 +386,12 @@ https://ui.shadcn.com/docs/components/dropdown-menu
 export our component from library (export from `libs/ui-components/src/index.ts`)
 
 edit `cn` import in generated component
-```json
+```ts
 import { cn } from "../../utils"
 ```
 
 add the component to the root `page.tsx` at `apps/web`
-```json
+```tsx
 <DropdownMenu>
   <DropdownMenuTrigger>Open</DropdownMenuTrigger>
   <DropdownMenuContent>
