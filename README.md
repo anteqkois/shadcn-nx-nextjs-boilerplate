@@ -348,7 +348,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
-create `compoenents.json` at monorepo root
+create `components.json` at monorepo root
 ```json
 {
   "$schema": "https://ui.shadcn.com/schema.json",
